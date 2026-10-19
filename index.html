@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#1b1d2b">
+<title>通知に異常なし</title>
+<meta name="description" content="スマートフォンに届く通知の中から、よく考えるとおかしい通知だけを見つけるゲーム。">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="stage">
+  <div id="phone">
+    <div id="screen">
+      <div class="wall"></div>
+
+      <div id="status">
+        <span id="carrier">ヒルヤスミ 5G</span>
+        <span class="status-icons">
+          <svg class="ic-signal" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx=".8"/><rect x="5" y="5.5" width="3" height="6.5" rx=".8"/><rect x="10" y="3" width="3" height="9" rx=".8"/><rect x="15" y="0" width="3" height="12" rx=".8"/></svg>
+          <svg class="ic-wifi" viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z"/></svg>
+          <span id="battery-pct">34%</span>
+          <span class="battery"><span id="battery-fill"></span></span>
+        </span>
+      </div>
+
+      <div id="lock">
+        <div id="date">10月18日 日曜日</div>
+        <div id="clock">12:56</div>
+        <div id="focus"><svg viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.8 1.8H4.2z"/></svg><span id="focus-text">通知確認モード</span></div>
+      </div>
+
+      <div id="list"></div>
+
+      <!-- タイトル -->
+      <div id="title" class="overlay scroll">
+        <div class="title-inner">
+          <h1>通知に異常なし</h1>
+          <p class="lead">昼休みが終わる 13:00 まで、届いた通知を確認してください。<br><b>おかしな通知だけ</b>をタップしてください。</p>
+          <div class="howto">
+            <div class="howto-row"><span class="tag ok">異常なし</span><div class="card mini" data-sample="0"></div></div>
+            <div class="howto-row"><span class="tag ng">異常あり</span><div class="card mini" data-sample="1"></div></div>
+          </div>
+          <p class="note">普通の通知は、そのままにしておけば大丈夫です。<br>変わった通知が、異常な通知とは限りません。</p>
+          <div class="settings">
+            <button id="opt-sound" class="opt" type="button">通知音：オン</button>
+            <button id="opt-speed" class="opt" type="button">通知の速さ：ふつう</button>
+          </div>
+          <button id="start" class="primary" type="button">通知の確認を始める</button>
+        </div>
+      </div>
+
+      <!-- 結果 -->
+      <div id="result" class="overlay scroll" hidden>
+        <div class="result-inner">
+          <div class="report-head">
+            <div class="report-app"><span class="icon" style="background:#5856d6"></span>通知確認レポート</div>
+            <div class="report-sub">本日 13:00 時点</div>
+          </div>
+          <div class="score-box">
+            <div class="score-label">あなたの通知確認能力</div>
+            <div class="score-num"><span id="r-score">0</span><small>pt</small></div>
+            <div class="rank-label">認定</div>
+            <div id="r-rank" class="rank"></div>
+            <div id="r-comment" class="comment"></div>
+          </div>
+          <dl id="r-stats" class="stats"></dl>
+          <section id="r-missed-sec">
+            <h2>見逃した異常な通知</h2>
+            <div id="r-missed" class="review"></div>
+          </section>
+          <section id="r-wrong-sec">
+            <h2>異常ではなかった通知</h2>
+            <div id="r-wrong" class="review"></div>
+          </section>
+          <section id="r-found-sec">
+            <details>
+              <summary>見つけた異常な通知（<span id="r-found-n">0</span>件）</summary>
+              <div id="r-found" class="review"></div>
+            </details>
+          </section>
+          <button id="close-report" class="primary" type="button">レポートを閉じる</button>
+        </div>
+      </div>
+
+      <!-- 最後 -->
+      <div id="final" class="overlay" hidden>
+        <div class="final-inner">
+          <div class="final-title">通知に異常なし</div>
+          <div class="final-buttons">
+            <button id="again" class="primary" type="button">もう一度確認する</button>
+            <button id="to-title" class="ghost" type="button">タイトルへ</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="homebar"></div>
+    </div>
+  </div>
+</div>
+<script src="js/notifications.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
